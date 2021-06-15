@@ -1,12 +1,10 @@
 
 import requests
-import json
-
 
 
 post_data = [
     {
-        0:5
+        0:5,
             },
 ]
 

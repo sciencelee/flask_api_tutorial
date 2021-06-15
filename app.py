@@ -5,9 +5,8 @@ import flask_cors
 app = Flask(__name__, static_folder='static')
 cors = flask_cors.CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-
 # routes
-@app.route('/square', methods=['POST', 'OPTIONS'])
+@app.route('/square/', methods=['POST', 'OPTIONS'])
 @flask_cors.cross_origin()
 def square():
     if request.method == "OPTIONS":  # CORS preflight

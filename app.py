@@ -8,7 +8,7 @@ cors = flask_cors.CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 # routes
-@app.route('/', methods=['POST', 'OPTIONS'])
+@app.route('/square', methods=['POST', 'OPTIONS'])
 @flask_cors.cross_origin()
 def square():
     if request.method == "OPTIONS":  # CORS preflight
@@ -26,6 +26,11 @@ def square():
         response['results'].append(square)
 
     return jsonify(response)
+
+# A welcome message to test our server
+@app.route('/')
+def index():
+    return "<h1>My API Server</h1>"
 
 
 def _build_cors_prelight_response():

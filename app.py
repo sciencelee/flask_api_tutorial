@@ -1,4 +1,3 @@
-#import pandas as pd
 from flask import Flask, jsonify, request, make_response
 import flask_cors
 
@@ -16,7 +15,9 @@ def square():
 
     # get data
     data = request.get_json()[0]
-    num_list = [data['dream'], data['target'], data['safety'] ]
+    num_list = data.values()
+
+
 
     response = {}
     response['results'] = []

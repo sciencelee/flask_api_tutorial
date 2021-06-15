@@ -10,13 +10,11 @@ cors = flask_cors.CORS(app, resources={r"/api/*": {"origins": "*"}})
 @flask_cors.cross_origin()
 def square():
     if request.method == "OPTIONS":  # CORS preflight
-        return _build_cors_prelight_response()
+        return build_cors_prelight_response()
 
     # get data
     data = request.get_json()[0]
     num_list = data.values()
-
-
 
     response = {}
     response['results'] = []
@@ -33,7 +31,7 @@ def index():
     return "<h1>My API Server</h1>"
 
 
-def _build_cors_prelight_response():
+def build_cors_prelight_response():
     response = make_response()
     response.headers.add("Access-Control-Allow-Origin", "*")
     response.headers.add("Access-Control-Allow-Headers", "*")

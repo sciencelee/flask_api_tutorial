@@ -51,6 +51,7 @@ MY_JSON = {
         "total_repost_count": "3",
     }
 
+
 @app.route('/social/', methods=['POST', 'OPTIONS'])
 @flask_cors.cross_origin()
 def square():
